@@ -6,6 +6,14 @@
 	<title>Mi proyecto</title>
 </head>
 <body>
-	<h1>Holiwi</h1>
+	<h1>Lista de noticias</h1>
+	
+	{% for key,value in noticias.items %}
+	 
+		<li>{{value}}</li>
+	
+	{% endfor %}
+	<button><a href="crearnoticia">Crear Noticia</a></button>
+	
 </body>
 </html>
