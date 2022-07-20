@@ -1,0 +1,39 @@
+{% extends 'Noticias/index.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<p></p>
+<h1> Lista de tus noticias creadas</h1>
+<p></p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">titulo</th>
+      <th scope="col">autor</th>
+      <th scope="col">ver</th>
+      <th scope="col">editar</th>
+      <th scope="col">eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+  	{% for noticia in noticias %}
+    <tr>
+      <th scope="row"> {{ noticia.id }}</th>
+      <td> {{ noticia.titulo }} </td>
+      <td> {{ noticia.autor }}</td>
+      <td><a class="btn btn-info" href="#">Ver</a>
+      <td><a class="btn btn-warning" href="{% url 'editarNoticia' noticia.id %}">Editar</a>
+      <td><a class="btn btn-danger" href="#">Eliminar</a>
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+<p></p>
+<a class="btn btn-success col-md-3" href="{% url 'registrarNoticia' %}">Agrega una nueva</a>
+
+
+
+{% endblock %}
